@@ -4,20 +4,20 @@ import shutil
 
 
 def load_settings(guild_id):
-    path = 'guild_data/' + str(guild_id) + '/settings.json'
+    path = 'src/guild_data/' + str(guild_id) + '/settings.json'
 
     try:
         with open(path, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        shutil.copy('guild_data/default_settings.json', path)
+        shutil.copy('src/guild_data/default_settings.json', path)
         with open(path, 'r') as f:
             return json.load(f)
    
 
 def save_settings(settings, guild_id):
-    with open('guild_data/' + str(guild_id) + '/settings.json', 'w') as f:
+    with open('src/guild_data/' + str(guild_id) + '/settings.json', 'w') as f:
         json.dump(settings, f, indent=4)
 
         
