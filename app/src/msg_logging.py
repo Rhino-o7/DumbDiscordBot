@@ -10,7 +10,7 @@ PREFIX: Final[str] = os.getenv('PREFIX')
 
 # Load messages from JSON file
 def load_messages(guild):
-    path = 'src/guild_data/' + str(guild) + '/messages.json'
+    path = 'data/' + str(guild) + '/messages.json'
 
     try:
         with open(path, 'r') as f:
@@ -25,7 +25,7 @@ def load_messages(guild):
 
 # Save messages to JSON file
 def save_messages(messages, guild):
-    with open('src/guild_data/' + str(guild) + '/messages.json', 'w') as f:
+    with open('data/' + str(guild) + '/messages.json', 'w') as f:
         json.dump(messages, f, indent=4)
 
 # Function to log a new message
@@ -65,7 +65,7 @@ def get_random_msg(guild, channel_id):
     
 def clear_all(guild):
     try :
-        open('src/guild_data/' + str(guild) + '/messages.json', 'w').close()
+        open('data/' + str(guild) + '/messages.json', 'w').close()
     except:
         return
 

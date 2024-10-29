@@ -6,7 +6,7 @@ import os
 
 def gen_message(guild_id, channel_id) -> str:
     try:
-        with open('src/guild_data/' + str(guild_id) + '/messages.json', 'r') as f:
+        with open('data/' + str(guild_id) + '/messages.json', 'r') as f:
             data = json.load(f)
         
         channel_id_str = str(channel_id)
@@ -31,7 +31,7 @@ def gen_message(guild_id, channel_id) -> str:
 
 def gen_message_all(guild_id):
     try:
-        with open('src/guild_data/' + str(guild_id) + '/messages.json', 'r') as f:
+        with open('data/' + str(guild_id) + '/messages.json', 'r') as f:
             data = json.load(f)
         messages = ""
         for channel in data:

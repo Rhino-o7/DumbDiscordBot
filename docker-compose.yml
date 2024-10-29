@@ -1,0 +1,10 @@
+services:
+  bot:
+    image: dumbbot
+    container_name: dumbbot_container
+    tty: true
+    cap_add:
+            - ALL
+    privileged: true
+    volumes:
+            - ./data:/app/data
